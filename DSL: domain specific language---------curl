@@ -1,0 +1,49 @@
+# curl
+
+DSL: domain specific language
+
+=====查看ES集群健康状态==================================
+
+查看ES集群健康状态
+level=cluster, indices, shards
+curl -XGET 'http://localhost:9200/_cluster/health?pretty' 
+curl -XGET 'http://localhost:9200/_cluster/health?level=indices&pretty' 
+curl -XGET 'http://localhost:9200/_cluster/health?level=shards&pretty'  
+对具体Index库（一个或者多个库）进行查看健康状态
+curl -XGET 'http://localhost:9200/_cluster/health/event_20171116?pretty'
+curl -XGET 'http://localhost:9200/_cluster/health/event_20171115,event_20171116?pretty'
+
+=====数据搜索============================================
+-----准备原始数据--------------------------------------------------
+echo '{"index":{"_index":"bank","_type":"account","_id":"1"}}' > data.json
+echo '{"account_number":1,"balance":39225,"firstname":"Amber","lastname":"Duke","age":32,"gender":"M","address":"880 Holmes Lane","employer":"Pyrami","email":"amberduke@pyrami.com","city":"Brogan","state":"IL"}' > data.json
+echo '{"index" :{"_index" : "bank","_type" : "account","_id" : "6"}}' > data.json
+echo '{"account_number":6,"balance":5686,"firstname":"Hattie","lastname":"Bond","age":36,"gender":"M","address":"671 Bristol Street","employer":"Netagy","email":"hattiebond@netagy.com","city":"Dante","state":"TN"}' > data.json
+curl -XPOST localhost:9200/_bulk?pretty --data-binary @data.json
+-----------------------------------------------------------------
+
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match_all":{}}}'	// 默认返回10条结果
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match_all":{}}, "size":1}'	// 指定返回1条结果
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match_all":{}}, "from":1, "size":2}'	// 指定返回1-3条结果
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match_all":{}}, "from":0, "size":3, "sort":{"create_time":"desc"}}'		// 对返回的结果进行排序
+
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match_all":{}}, "_source":["create_time","result"], "size":2}'	// 只返回指定字段
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match":{"create_time":1509592826632}}, "_source":["create_time","result"], "size":2}'	// 只返回符合条件的指定字段
+
+=====插入数据===========================================
+
+插log 入 test index
+echo '{ "index" : { "_index" : "test", "_type" : "type1", "_id" : "1" } }' > data.json
+echo '{ "field1" : "alue2" }' >> data.json
+echo '{ "index" : { "_index" : "test", "_type" : "type1", "_id" : "3" } }' >> data.json
+echo '{ "field1" : "alue3" }' >> data.json
+curl -XPOST localhost:9200/_bulk?pretty --data-binary @data.json
+
+
+插入audit_log index
+echo '{ "index" : { "_index" : "audit_log", "_type" : "log", "_id" : "01234567890123456789" } }' > data.json
+echo '{ "username" : "uname","source_ip" : "172.100.101.103", "user_id" : "ABCDEFGHIJKL","description":"插入数据测试","url" : "","result" : "失败","create_time" : 1509530267362,"param" :"{\"username\":\"admin\",\"password\":\"8845b50e1458cbeeeac98e6c20192d7d\",\"captcha\":\"gbaxh\",\"usecaptcha\":\"no\"}"}' >> data.json
+
+curl -XPOST localhost:9200/_bulk?pretty --data-binary @data.json
+
+curl -XPOST 'http://localhost:9200/audit_log/_search?pretty' -d '{"query":{"match":{"source_ip": "172.100.101.103"}}, "size":2}'

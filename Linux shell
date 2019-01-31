@@ -1,0 +1,19 @@
+# Linux相关
+
+## 禁用/解禁ip/domain的命令 
+
+禁用ip/domain
+        iptables -I INPUT -s "cps.hansight.com" -j DROP
+        iptables -I INPUT -s "cps.anquanyi.com" -j DROP
+        iptables -I INPUT -s "ti.hansight.com" -j DROP
+        iptables -I INPUT -s *.*.*.* -j DROP
+解禁ip/domain
+        iptables -D INPUT -s "cps.hansight.com"  -j DROP
+        iptables -D INPUT -s "ti.hansight.com"  -j DROP
+        iptables -D INPUT -s *.*.*.*  -j DROP
+查看是否生效
+        ping cps.hansight.com
+        ping cps.anquanyi.com
+        ping ti.hansight.com
+查询域名对应的ip地址
+        在DOS窗口输入命令： ping 空格 域名
