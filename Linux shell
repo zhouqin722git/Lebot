@@ -22,6 +22,6 @@
 ## Linux中  ftp上传下载   url: https://www.jb51.net/article/129520.htm
         如：
         ftp [hostname | ip_address]
-        > mget file  #download 
-        > mput file  #upload
+        > mget remote-files  #download 
+        > mput local-files   #upload
         > bye  
