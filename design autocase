@@ -3,3 +3,6 @@ ES查询有效期内的IP
 导入内容包
 send logs
 查看alert
+
+
+curl -X POST 'http://172.16.100.237:9200/threat_intelligence_credibility/_search?pretty' -d '{"query":{"match":{"type":"ip"}},"sort":{"timestamp":"desc"},"size":1}'
