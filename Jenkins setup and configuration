@@ -12,3 +12,41 @@
 
 ## 配置
 
+
+ 
+安装部署1：CentOS rpm方式安装jenkins及卸载(非war包)
+https://blog.csdn.net/li_magic/article/details/83143069
+
+1.进入jenkins-2.147-1.1.noarch.rpm存放目录导入jenkins密钥，执行如下命令：
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+2、2. 然后安装jenkins，执行如下命令：
+rpm -ivh jenkins-2.152-1.1.noarch.rpm
+
+3.修改jenkins服务端口（我这里设置的是18080）：
+JENKINS_PORT="18080"
+
+4、启动jenkins： service jenkins start
+
+5、.如果提示失败，解决办法（成功，忽略此步骤）：
+修改jenkins配置文件中JDK路径是否与本地路径一致，不一致则将Java的正确路径加入
+vim /etc/init.d/jenkins
+
+6.访问http://ip:端口/jenkins即可看到如下界面
+
+7.看到这界面jenkins就安装完成了，然后查看密码文件的密码复制到框里点击Continue进入选择插件安装界面选择,我选的第一个
+
+（推荐安装）或者第二个(自定义安装)
+
+8.等一会插件安装完毕进入创建用户界面：
+创建用户之后就可以使用jenkins了
+
+9.彻底卸载jenkins
+##卸载
+ 1007  service jenkins stop
+ 1008  yum clean all
+ 1009  yum -y remove jenkins
+ 1010  rm -rf /var/cache/jenkins/
+ 1011  rm -rf /var/lib/jenkins/
+
