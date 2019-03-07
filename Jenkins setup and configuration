@@ -51,7 +51,7 @@ vim /etc/init.d/jenkins
  1011  rm -rf /var/lib/jenkins/
  
  
- ##publish over ssh
+ #publish over ssh 插件：远程连接ssh
  https://www.cnblogs.com/zhchoutai/p/8869898.html
  
  若报错：ERROR: Exception when publishing, exception message [Exec timed out or was interrupted after 120,016 ms]
