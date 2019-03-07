@@ -49,14 +49,19 @@ vim /etc/init.d/jenkins
  1009  yum -y remove jenkins
  1010  rm -rf /var/cache/jenkins/
  1011  rm -rf /var/lib/jenkins/
- 
- 
- #publish over ssh 插件：远程连接ssh
+
+
+#publish over ssh 插件：远程连接ssh
  https://www.cnblogs.com/zhchoutai/p/8869898.html
  
- 若报错：ERROR: Exception when publishing, exception message [Exec timed out or was interrupted after 120,016 ms]
- 原因： 在使用Jenkins进行远程部署时，构建后执行的脚本没有正常退出导致。
- 解决方案：
- Make it Exec in PTY. (Please tick the check-box as shown in attached screenshot)
- 在publish over ssh的高级中，勾选上EXEC PTY
+ 1、若报错：ERROR: Exception when publishing, exception message [Exec timed out or was interrupted after 120,016 ms]
+   原因： 在使用Jenkins进行远程部署时，构建后执行的脚本没有正常退出导致。
+   解决方案：
+   Make it Exec in PTY. (Please tick the check-box as shown in attached screenshot)
+   在配置->SSH Publisher的高级中，勾选上EXEC in PTY
 
+
+ 2、若报错：ERROR: Exception when publishing, exception message [Exec timed out or was interrupted after 120,530 ms]
+   原因：
+   解决方案：
+   在配置->SSH Publisher的高级中，将Exectimeout的值变大，如720000
