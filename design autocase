@@ -6,3 +6,13 @@ send logs
 
 
 curl -X POST 'http://172.16.100.237:9200/threat_intelligence_credibility/_search?pretty' -d '{"query":{"match":{"type":"ip"}},"sort":{"timestamp":"desc"},"size":1}'
+
+
+case1： 修改数据库--更新高置信ioc的资源吧
+case2： 导入初始化内容包，包括：event name，event parse rule， sae rule， ice template，information configuration
+case3： 导入DataSource
+case4： 发送event，其中内网ip，目的端口，域名，发生时间属于information configuration，触发产生4条sae规则
+case5： 获取高置信ioc，IP类型、domain类型
+case6： 更新event，源ip为高置信ioc，域名domain为高置信ioc，触发产生4条event
+case7： 添加情报白名单，发送event，不能触发产生威胁情报相关的告警
+case8:  外网ip的跳转：大屏的目的地址、logs、alert、incident
