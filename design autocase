@@ -1,13 +1,8 @@
-ES查询有效期内的IP
-新增threatintelligence whitelist
-导入内容包
-send logs
-查看alert
 
-
+#获取有效的高置信ioc：
 curl -X POST 'http://172.16.100.237:9200/threat_intelligence_credibility/_search?pretty' -d '{"query":{"match":{"type":"ip"}},"sort":{"timestamp":"desc"},"size":1}'
 
-
+#autocase的步骤：
 case1： 修改数据库--更新高置信ioc的资源吧
 case2： 导入初始化内容包，包括：event name，event parse rule， sae rule， ice template，information configuration
 case3： 导入DataSource
@@ -16,3 +11,8 @@ case5： 获取高置信ioc，IP类型、domain类型
 case6： 更新event，源ip为高置信ioc，域名domain为高置信ioc，触发产生4条event
 case7： 添加情报白名单，发送event，不能触发产生威胁情报相关的告警
 case8:  外网ip的跳转：大屏的目的地址、logs、alert、incident
+
+#RF遇到的问题：
+1、path
+2、import library
+3、参数params
