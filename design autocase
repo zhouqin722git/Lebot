@@ -16,3 +16,5 @@ case8:  外网ip的跳转：大屏的目的地址、logs、alert、incident
 1、path
 2、import library
 3、参数params
+
+Suite Setup、Suite TearDown、Test Setup可以作为一个keyword，写在Testsuite/***.txt用例文档中，以***Keywords***作为分隔
