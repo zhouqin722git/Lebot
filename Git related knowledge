@@ -1,0 +1,24 @@
+#安装部署文档，参考： https://www.cnblogs.com/imyalost/p/8715688.html
+
+1、官网下载git：https://github.com/git/git/releases
+
+  wget https://github.com/git/git/archive/v2.21.0.tar.gz
+  
+2、压缩包解压： tar -zxvf v2.21.0.tar.gz
+
+3、安装编译源码所需依赖，命令为： yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+  耐心等待安装，出现提示输入y即可；
+  
+4、安装依赖时，yum自动安装了Git，需要卸载旧版本Git，命令为： yum remove git 出现提示输入y即可
+
+5、进入解压后的文件夹，命令 cd git-2.17.0 ，然后执行编译，命令为 make prefix=/usr/local/git all 耐心等待编译即可
+
+6、安装Git至/usr/local/git路径，命令为 make prefix=/usr/local/git install
+
+7、打开环境变量配置文件，命令 vim /etc/profile ，在底部加上Git相关配置信息：
+   export PATH=$PATH:/usr/local/git/bin
+   保存，退出
+   
+8、使修改文件生效：source /etc/profile
+
+9、输入命令 git --version ，查看安装的git版本，校验通过，安装成功。
