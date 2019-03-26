@@ -47,3 +47,10 @@
 pip install -r requirements
 
 
+#执行pybot命令
+ 若报错：: /bash: pybot: command not command
+ 则表示版本问题。
+ 解决方案：
+        sudo pip uninstall robotframework
+        sudo pip install robotframework==3.0
+
