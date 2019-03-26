@@ -34,3 +34,16 @@
  1031  pip install requests
  1033  pip install --upgrade pip
  1034  pip install requests
+ 
+ 
+ requirements文件：
+        robotframework
+        beautifulsoup4
+        requests
+        mysql-connector-python
+        robotframework-sshlibrary
+        
+#下载rf相关的lib
+pip install -r requirements
+
+
