@@ -68,3 +68,21 @@ vim /etc/init.d/jenkins
    原因：
    解决方案：
    在配置->SSH Publisher的高级中，将Exectimeout的值变大，如720000
+
+
+##Robot FrameWork插件：Robot Framework plugin
+
+    1. 安装插件；
+    
+    2. 新增slave节点：
+           名称：如 slave--237
+           远程工作目录： 即脚本的存放目录
+           启动方式：Launch agent agents via SSH
+                   主机、用户名、密码
+    
+    3. 配置：
+           ① General： 限制项目的运行节点，及脚本的存放节点
+           ② 源码管理： 无
+           ③ 构建： 执行shell(前提：部署好 自动化环境)
+               cd /usr/local/hes_scrpits/PyMulti
+               pybot --PYTHONPATH  configs:keywords:. ./Testsuite/smoke.txt
