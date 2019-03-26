@@ -25,3 +25,12 @@
         > mget remote-files  #download 
         > mput local-files   #upload
         > bye  
+        
+        
+##pip
+
+ 1029  yum install epel-release
+ 1030  yum install python-pip
+ 1031  pip install requests
+ 1033  pip install --upgrade pip
+ 1034  pip install requests
