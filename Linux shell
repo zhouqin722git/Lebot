@@ -54,3 +54,12 @@ pip install -r requirements
         sudo pip uninstall robotframework
         sudo pip install robotframework==3.0
 
+#sshlibrary、paramiko保错，可能是版本不匹配的原因。
+ 对于Python 2.7而言
+ 解决方案：
+        pip uninstall paramiko
+        pip uninstall robotframework
+        
+        pip install paramiko==2.0.2
+        pip install robotframework-sshlibrary==2.1.2
+        
