@@ -1,5 +1,15 @@
 # curl
 
+#注意： -d 后面的数据，必须是严格的json格式。
+    解决方案（将非标准的格式转换为json格式）：
+        F12 console页面，执行：
+        c = 
+        JSON.stringify(c)
+        
+    event ti query: 
+    curl -XPOST 'https://ti.hansight.com/v1/query/event' -d '{"data":[{"c":"1","t":"0","v":"3.3.3.3"}],"auth":{"content":"3OmYzalHiqVVlsE/4uIdktT9w53/WRtoxicqiTfZ15p2teKffBKQNxDzhqB0sAK1fMTwC6dRSmSaO7dDp/y+6wYEOyu5gwlY+I8UFOQZAHZKca/P5r47Pvm9Vjih0j+lXuVEaC7OJfl0PpF7lHo97MHW+KI8S/wRKn/kjQxSMBFUq+dvqGq0HBnyYos+vmqGYSULJLWyXYVTt7yO2oHE8BsZ1cV8MPDXG0OpCWmNLuSVcEVExG4qji1I7Z1hBKxp9gdqRrf+d70QwZ0e2olIlCkhfKdFdjoePm4ZQ51W/jL53NDPZ81aTCvQ/4H5t5XWmnFO+qPtNuWiixLRJ3ZonyWBqi4MoyUa5Jf/1AoosvqpxSi8Xxr+xOWO2aif3A588ZBiqRQ1N0PjN//pjgUIx9nbNppWkNnscZSBDpQpnQH8XXtKCQV3kjKyw7C0OAQ9eNCb7zhXQTbZ2yeAdC7/PTBF0PFMwf/ZQ9lvQ9cORJS7SqkQUbJDAtderxb2M9jZEFfzzq/sCJC+P/WbzvOSc5+YQsdVVjfL63OfLDXAvfXwo1eTDrr/eXiY2Q/sIKspzGDMZKwuRsruhNToKfpAzztvBkSuc/dN8b95Ser/meys4ryKhYtUuhiHF6oP+pUjZVTidDvvJxuOy4x2TLQIlL41CdMOSwAu1noJjVjEYBjgU0qMM8T6m4YinS5cFcD7nRfm1X1obN9eDpbyeFzpXPZmaNCM2kT6cGvGgkFTZUk9w+Yz4PmlbNGS/VMv1+w/g0L25S866Ms+ak2dI7pJO+Nus4xS5EX6wkO7DhCMsdic6l6dm18RABPwcar9D8ILjW3Ggy9vahxU0NWEH0V9gKPu3jC4NFyfYxVRgysnlY0nrC/M8XlaiJRkOzJzvuUwqKUrcC4MY/P5xQ12/D0DRxnEB6Xl0dMvx2RIUFN3mDLuhTf1vT5zFqKfQHa84w17G81Ev0DfC5KmN5ztPMo3aJTniXtfDCr7JGsas3g7rHfkHax52XfkXWXjgfY8/pOnzEdBe6YpfTHP5TiiAc4/fY4e4wePO3tD8syxA34qwFU0ZwaakD4zNoksleXIG2ChIu2xCy8c/q0f92MH75vZid8vFzGdL3T0YlW3fDV9RgQI5jmvlg/5zB6iqlqZBRFdIqZOXUZiW/IjRvobnTEL7DglR4+KWOL9fGVO7uEAzGIDBGk982hearcgZHi0xI0opuNvojtieZUwr/RvsyBOs6ucwzeTdQXeH1JRxW1ctIESX+wtjBC9AZHpMejpRPS26lFWnyZWE2/A5zF0rigWJoZbWAJD/WKqIWw5CDMt8ja7LYQq2UrOhlzbHjcokwB6A5FqsHdKjTs3AeYd94oRaFz6NMaj77WD68pbunj66i4=\u0000\u0000\u0000RjvmyDCy10zeRP4L8/ZrWj9ntclkphNw7l4rcZuXh/50rs1l2ANwv4SSTp4TCMVjTCtFgu2KepqiU1EUZcg9d2mbQ3XeJKuAwLq4aFzD6k29ikydEdqHNfaU9ez6ZepDaN1sd1EhOqAimvp6nEDp7q+3Dot9+nlDLmXPZcL2onZlkcRaV1x0Uy8DtKUIuoYqpyfh1saV5Zv3Ar+43vyByW6+PYzlPCWuF947n1IrK0R1/W+vYRUM5Gn1PTVYgZdSKEEyZsKBlj+qU/STZmWdx35fE0i+ktbYD4fet3XmWKCU0KoNWLKNlj7Q/43LMZQlermXHY6Jz/7Z6cNVYLFW2g==\u0000\u0000\u0000Ya5Ddu1dM9jR4YoEXR5TaNhwNQwNdECfLoQK9D+T7S+AxncUeQkp3z6k3cPth3mI58yjNqMuh6S39qRiqh1duDI3mFevYWdanJJEowPex8j4Eu6OGNC02eITK3p9JqTyawf5JsXHt1N/KzlyVBmKpeMtj75sqI2eNGVgqP6G9ZwunvGciTgPnv5dkvsxGofwWTktI+6JVgtoGyNZAyxX8OEK6vi4nVowcrE+EVKgRcQVT9RXGiK4lrJZPcie6/sVE8Kv6ErWS0V3mJ3NxJZkultdLBKpCXHeXjfKdwOYtltVCkHW/llP1RUeKJxqAEmaVhotOpv5pZVcsi3ApiGp3g==","buildnum":"5941","version":"5.0","type":"file","auth":"license"}}' -H 'Content-Type: application/json'
+        
+
 DSL: domain specific language
 
 =====查看ES集群健康状态==================================
