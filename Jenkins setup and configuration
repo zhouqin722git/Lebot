@@ -36,6 +36,9 @@ vim /etc/init.d/jenkins
 
 6.访问http://ip:端口/jenkins即可看到如下界面
 
+注意：jenkins报错：Problem accessing /jenkins/. Reason: HTTP ERROR 404
+      这是一个Jenkins的Bug。临时解决方法是：在浏览器中手工输入：http://<ip>:<port>。不要访问"/jenkins"这个路径。
+
 7.看到这界面jenkins就安装完成了，然后查看密码文件的密码复制到框里点击Continue进入选择插件安装界面选择,我选的第一个
 
 （推荐安装）或者第二个(自定义安装)
