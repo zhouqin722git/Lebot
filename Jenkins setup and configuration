@@ -58,7 +58,7 @@ vim /etc/init.d/jenkins
 #publish over ssh 插件：远程连接ssh
  https://www.cnblogs.com/zhchoutai/p/8869898.html
  
- 前提：验证远程机器是否已经开启ssh服务
+ 前提：验证远程机器是否已经开启ssh服务（rpm -qa | grep "ssh"）
  参考文档：https://jingyan.baidu.com/article/0f5fb099388b196d8334eac7.html
  
  1、若报错：ERROR: Exception when publishing, exception message [Exec timed out or was interrupted after 120,016 ms]
