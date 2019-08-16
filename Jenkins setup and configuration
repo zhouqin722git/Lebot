@@ -25,6 +25,7 @@ sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 rpm -ivh jenkins-2.152-1.1.noarch.rpm
 
 3.修改jenkins服务端口（我这里设置的是18080）：
+vim /etc/sysconfig/jenkins
 JENKINS_PORT="18080"
 
 4、启动jenkins： service jenkins start
