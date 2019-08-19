@@ -1,0 +1,19 @@
+1. chrome webdriver的版本下载地址：http://npm.taobao.org/mirrors/chromedriver/
+
+2. 安装chrome webdriver
+
+  
+3. chrome options选项：
+  参考链接：https://www.jianshu.com/p/04848a35fe0a
+
+  from selenium import webdriver
+  from selenium.webdriver.chrome.options import Options
+  
+  # 实例化一个启动参数对象
+  chrome_options = Options()
+  # 添加启动参数
+  chrome_options.add_argument('--window-size=1366,768')
+  # 将参数对象传入Chrome，则启动了一个设置了窗口大小的Chrome
+  browser = webdriver.Chrome(chrome_options=chrome_options)
+  
+  
