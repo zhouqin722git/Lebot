@@ -9,10 +9,8 @@ Linux环境下实现UI自动化
 
   requirement：（chrome版本和chrome webdriver版本严格要求兼容性）
   
-      google-chrome：  Google Chrome 71.0.3578.98       查看命令：google-chrome  --version
-      
-      chromedriver:    ChromeDriver 2.45.615279         查看命令：chromedriver --version
-      
+      google-chrome：  Google Chrome 71.0.3578.98       查看命令：google-chrome  --version    
+      chromedriver:    ChromeDriver 2.45.615279         查看命令：chromedriver --version    
       selenium:        selenium (3.141.0)               查看命令：pip list
             
       
@@ -20,26 +18,22 @@ Linux环境下实现UI自动化
 
 Linux环境安装chrome：以版本71为例
 
-    1、下载chrome 71版本的rpm安装包（从网盘获取或自行下载）
-  
+    1、下载chrome 71版本的rpm安装包（从网盘获取或自行下载） 
+    
     2、将下载的rpm包上传至Linux环境，并解压：
-        rpm -ivh google-chrome-stable-71.0.3578.98-1.x86_64.rpm 
+        rpm -ivh google-chrome-stable-71.0.3578.98-1.x86_64.rpm       
         
     3、查看已安装的chrome版本： 
-        google-chrome --version
+        google-chrome --version      
         
     4、查看已安装的chrome版本（第一个installed）：
-        yum info google-chrome-stable
+        yum info google-chrome-stable    
         
     5、卸载：
         yum remove google-chrome
 
     补充命令：
-    
-    1、查看当前最新的chrome版本：  yum install google-chrome-stable
-    
-
-     
+    1、查看当前最新的chrome版本：  yum install google-chrome-stable  
     
 ####
 
