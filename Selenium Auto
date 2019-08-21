@@ -24,7 +24,7 @@ Selenium官方文档：https://seleniumhq.github.io/selenium/docs/api/py/api.htm
   
 ####
 
-Linux环境安装chrome及chrome webdriver：
+Linux环境安装chrome：
   参考链接：https://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
 
 1、查看当前最新的chrome版本： 
@@ -39,5 +39,15 @@ Linux环境安装chrome及chrome webdriver：
 4、卸载：
     yum remove google-chrome
     
+####
+
+Linux环境安装chrome webdriver：    
+  unzip chromedriver_linux64.zip
+  chmod +x chromedriver
+  sudo mv -f chromedriver /usr/local/share/chromedriver
+  sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
     
+  查看版本：chromedriver --version
+  执行是否可用：chromedriver
     
