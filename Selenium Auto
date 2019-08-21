@@ -23,3 +23,14 @@ Selenium官方文档：https://seleniumhq.github.io/selenium/docs/api/py/api.htm
   browser = webdriver.Chrome(chrome_options=chrome_options)
   
   
+Linux环境安装chrome及chrome webdriver：
+  参考链接：https://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
+
+1、查看当前最新的chrome版本： 
+    # yum install google-chrome-stable
+    
+2、安装最新版本的chrome：
+    # yum info google-chrome-stable
+  
+3、开启Starting Chrome Web Browser：
+    # google-chrome &
