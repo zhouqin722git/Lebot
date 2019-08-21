@@ -39,6 +39,11 @@ Linux环境安装chrome：
 4、卸载：
     yum remove google-chrome
     
+5、查看已安装的chrome版本：
+    google-chrome --version
+    
+     
+    
 ####
 
 Linux环境安装chrome webdriver：    
@@ -48,6 +53,12 @@ Linux环境安装chrome webdriver：
   sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
     
-  查看版本：chromedriver --version
-  执行是否可用：chromedriver
+  查看已安装的版本：
+      chromedriver --version
+      
+  查看是否安装成功：
+      chromedriver
+  
+  webdriver的卸载：
+      yum remove google-chrome-stable
     
