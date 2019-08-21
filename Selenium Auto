@@ -22,7 +22,8 @@ Selenium官方文档：https://seleniumhq.github.io/selenium/docs/api/py/api.htm
   # 将参数对象传入Chrome，则启动了一个设置了窗口大小的Chrome
   browser = webdriver.Chrome(chrome_options=chrome_options)
   
-  
+####
+
 Linux环境安装chrome及chrome webdriver：
   参考链接：https://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
 
@@ -34,3 +35,9 @@ Linux环境安装chrome及chrome webdriver：
   
 3、开启Starting Chrome Web Browser：
     # google-chrome &
+    
+4、卸载：
+    yum remove google-chrome
+    
+    
+    
