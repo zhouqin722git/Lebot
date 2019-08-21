@@ -1,64 +1,127 @@
 ###
 
-Selenium官方文档：https://seleniumhq.github.io/selenium/docs/api/py/api.html
+Selenium官方文档：https://seleniumhq.github.io/selenium/docs/api/py/api.html 
+ 
+ 
+###################
 
+Linux环境下实现UI自动化
 
-
-1. chrome webdriver的版本下载地址：http://npm.taobao.org/mirrors/chromedriver/
-
-2. 安装chrome webdriver
-
+  requirement：（chrome版本和chrome webdriver版本严格要求兼容性）
   
-3. chrome options选项：
-  参考链接：https://www.jianshu.com/p/04848a35fe0a
+      google-chrome：  Google Chrome 71.0.3578.98       查看命令：google-chrome  --version
+      
+      chromedriver:    ChromeDriver 2.45.615279         查看命令：chromedriver --version
+      
+      selenium:        selenium (3.141.0)               查看命令：pip list
+            
+      
+####
+
+Linux环境安装chrome：以版本71为例
+
+    1、下载chrome 71版本的rpm安装包（从网盘获取或自行下载）
+  
+    2、将下载的rpm包上传至Linux环境，并解压：
+        rpm -ivh google-chrome-stable-71.0.3578.98-1.x86_64.rpm 
+        
+    3、查看已安装的chrome版本： 
+        google-chrome --version
+        
+    4、查看已安装的chrome版本（第一个installed）：
+        yum info google-chrome-stable
+        
+    5、卸载：
+        yum remove google-chrome
+
+    补充命令：
+    
+    1、查看当前最新的chrome版本：  yum install google-chrome-stable
+    
+
+     
+    
+####
+
+Linux环境安装chrome webdriver：（与chrome71对应，webdriver选择2.45版本） 
+  
+  1、下载2.45版本的chrome webdriver
+      wget http://npm.taobao.org/mirrors/chromedriver/2.45/chromedriver_linux64.zip
+      
+  2、解压chrome webdriver的压缩包：
+      unzip chromedriver_linux64.zip
+      
+  3、赋予chromedriver执行权限：
+      chmod +x chromedriver
+      
+  4、将chromedriver移到/usr/local/share/chromedriver
+      sudo mv -f chromedriver /usr/local/share/chromedriver
+      
+  5、创建软连接（chromedriver一定要在/usr/bin/目录下）：
+      sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+      sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+    
+  6、查看chromedriver是否安装成功（不报错，即安装成功）：
+      # chromedriver
+      
+  7、查看已安装的版本：
+      chromedriver --version
+      
+  8、chromedriver的卸载：
+      yum remove google-chrome-stable
+        
+####
+
+  测试环境：简单Python脚本的执行a.py,  执行命令：Python a.py
+  
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.keys import Keys
+
+    chrome_options = Options()
+    chrome_options.add_argument('--no-sandbox') 
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--headless')
+    browser = webdriver.Chrome(chrome_options=chrome_options)
+
+    browser.get("https://www.baidu.com")
+    print browser.title
+
+    elem = browser.find_element_by_id("kw")
+    elem.clear()
+    elem.send_keys("pycon")
+    elem.send_keys(Keys.RETURN)
+    assert "No results found." not in browser.page_source
+    browser.close()
+    
+   若不报错，则执行成功，环境可用。
+   
+注意：
+1、若报错：
+   selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally
+      (unknown error: DevToolsActivePort file doesn't exist)
+    
+    对应的解决方案：
+        在脚本中，添加：
+        from selenium.webdriver.chrome.options import Options
+        chrome_options.add_argument('--headless')
+        
+     意义：
+     “–no-sandbox”参数是让Chrome在root权限下跑
+     “–headless”参数是不用打开图形界面
+     
+2. chrome options选项： 参考链接：https://www.jianshu.com/p/04848a35fe0a
 
   from selenium import webdriver
   from selenium.webdriver.chrome.options import Options
   
   # 实例化一个启动参数对象
   chrome_options = Options()
+  
   # 添加启动参数
   chrome_options.add_argument('--window-size=1366,768')
+  
   # 将参数对象传入Chrome，则启动了一个设置了窗口大小的Chrome
   browser = webdriver.Chrome(chrome_options=chrome_options)
-  
-####
-
-Linux环境安装chrome：
-  参考链接：https://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
-
-1、查看当前最新的chrome版本： 
-    # yum install google-chrome-stable
-    
-2、安装最新版本的chrome：
-    # yum info google-chrome-stable
-  
-3、开启Starting Chrome Web Browser：
-    # google-chrome &
-    
-4、卸载：
-    yum remove google-chrome
-    
-5、查看已安装的chrome版本：
-    google-chrome --version
-    
-     
-    
-####
-
-Linux环境安装chrome webdriver：    
-  unzip chromedriver_linux64.zip
-  chmod +x chromedriver
-  sudo mv -f chromedriver /usr/local/share/chromedriver
-  sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-  sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
-    
-  查看已安装的版本：
-      chromedriver --version
-      
-  查看是否安装成功：
-      chromedriver
-  
-  webdriver的卸载：
-      yum remove google-chrome-stable
-    
+   
+   
