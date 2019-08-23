@@ -136,5 +136,17 @@ Linux环境安装chrome webdriver：（与chrome71对应，webdriver选择2.45�
   
   # 将参数对象传入Chrome，则启动了一个设置了窗口大小的Chrome
   browser = webdriver.Chrome(chrome_options=chrome_options)
+  
+  
+  
+  ##################
+  
+  Selenium Python脚本运行报错及解决方案：
+  
+  1、若在选择下拉框时报错：elenium.common.exceptions.ElementNotVisibleException: Message: element not interactable
+  
+     那么，解决方案：加一个时间等待，time.sleep(3)
+     
+  
    
    
