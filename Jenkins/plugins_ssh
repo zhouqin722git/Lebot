@@ -1,0 +1,25 @@
+##########
+
+配置Publish over SSH 插件
+
+1、Jenkins服务器上配置SSH公钥认证
+  参考链接：https://www.cnblogs.com/jager/p/5986563.html
+            
+
+  公钥认证，是使用一对加密字符串，一个称为公钥(public key)， 任何人都可以看到其内容，用于加密；另一个称为密钥(private key)，只有拥有者才能看到，用于解密。
+
+  在使用jenkins自动构建并远程登录服务器进行发布应用的时候，需要使用SSH公钥认证来解决登录服务器的问题。
+
+　　其实很简单，只需要两个指令即可。
+
+    ssh-keygen -t rsa -P ''
+    ssh-copy-id -i ~/.ssh/id_rsa.pub <IP>
+　　
+    假设有两台服务器，A是Jenkins构建服务器，B是应用服务器，A构建好应用之后，将包传到B进行发布。
+
+    ① 在A上面执行 ssh-keygen -t rsa -P ''， -P后面两个单引号表示密码为空，之后会在~/.ssh目录下创建两个文件id_rsa(私钥),id_rsa.pub(公钥)
+    
+    ② 接下来继续在A上执行 ssh-copy-id -i ~/.ssh/id_rsa.pub <IP>，表示将公钥发给B，发到B服务器的~/.ssh目录下
+    
+    ③ 之后在用ssh B<ip>尝试能否免密登录B服务器。
+      
