@@ -13,3 +13,17 @@ Pycharm快捷键：
     多行注释被取消：代码选中的情况下，同时按住 Ctrl+/
     
     替换： 同时按住 Ctrl+R
+    
+Linux下执行SQL文件：
+    进入mysql-->切换数据库-->执行sql文件（source），如：
+    
+    # /opt/hansight/enterprise/mysql/bin/mysql -h 127.0.0.1 -P port -u username -p  
+    
+    Enter password:
+    
+    mysql> use dnname;
+    
+    mysql>source file_abs_path;
+    
+    mysql>exit;
+    
