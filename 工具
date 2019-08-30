@@ -15,6 +15,7 @@ Pycharm快捷键：
     替换： 同时按住 Ctrl+R
     
 Linux下执行SQL文件：
+
     进入mysql-->切换数据库-->执行sql文件（source），如：
     
     # /opt/hansight/enterprise/mysql/bin/mysql -h 127.0.0.1 -P port -u username -p  
