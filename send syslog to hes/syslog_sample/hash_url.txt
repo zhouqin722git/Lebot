@@ -1,0 +1,8 @@
+{
+    "src":"111.13.38.109",
+    "dst":"172.16.101.67",
+    "domain":"domain_test",
+    "hash_file": "54e1c3722102182bb133912ad4442e19",
+    "url": "http://landini.az/greeting-ecards",
+    "vul_id": "2012"
+}
