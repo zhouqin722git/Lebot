@@ -2,7 +2,7 @@
 
 ###
 
-1、生成批量数据
+1、生成批量数据, 生成后壳通过source命令执行
 
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
@@ -25,18 +25,5 @@ for i in range(1, 1000000):
 
     print >> file, sql
     
-### 
 
-2、Linux下执行SQL文件：
 
-    进入mysql-->切换数据库-->执行sql文件（source），如：
-    
-    # /opt/hansight/enterprise/mysql/bin/mysql -h 127.0.0.1 -P port -u username -p  
-    
-    Enter password:
-    
-    mysql> use dbname;
-    
-    mysql>source file_abs_path;
-    
-    mysql>exit;
