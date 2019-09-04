@@ -22,3 +22,18 @@ for i in range(1, 1000000):
     print sql
 
     print >> file, sql
+    
+    
+  2、Linux下执行SQL文件：
+
+    进入mysql-->切换数据库-->执行sql文件（source），如：
+    
+    # /opt/hansight/enterprise/mysql/bin/mysql -h 127.0.0.1 -P port -u username -p  
+    
+    Enter password:
+    
+    mysql> use dbname;
+    
+    mysql>source file_abs_path;
+    
+    mysql>exit;
