@@ -1,5 +1,7 @@
 #################
 
+###
+
 1、生成批量数据
 
 #!/usr/bin/python
@@ -23,8 +25,9 @@ for i in range(1, 1000000):
 
     print >> file, sql
     
-    
-  2、Linux下执行SQL文件：
+### 
+
+2、Linux下执行SQL文件：
 
     进入mysql-->切换数据库-->执行sql文件（source），如：
     
