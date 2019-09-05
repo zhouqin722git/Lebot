@@ -2,7 +2,7 @@
 
 ###
 
-1、生成批量数据, 生成后壳通过source命令执行
+1、生成批量数据, 生成后可通过source命令执行
 
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
