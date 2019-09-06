@@ -1,5 +1,11 @@
 1、邮箱配置，test configuration，报错503 
 
-需要研究解决方案：https://jingyan.baidu.com/article/ae97a646ce09c2bbfd461d3f.html
+    QQ邮箱授权码的获取：https://jingyan.baidu.com/article/fedf0737af2b4035ac8977ea.html
+    
+    腾讯企业邮箱授权码的获取： https://jingyan.baidu.com/article/6181c3e0b12548152ef153db.html
+    
+    Extended E-mail Notification的配置：  https://www.jianshu.com/p/1d888d1bff73
+    
+    参考文档：https://blog.csdn.net/houyefeng/article/details/51344337
 
 2、生成的报告
