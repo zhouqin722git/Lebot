@@ -14,10 +14,12 @@ Pytest框架：
     实战链接：https://www.jianshu.com/p/e173ee66b780
     接口框架：https://www.jianshu.com/p/e31c54bf15ee
 
-    pytest接口自动化安装：
-        pip install -U pytest
-        pip install pytest-allure-adaptor
-        npm install -g allure-commandline --save-dev
+    pytest接口自动化安装：https://www.cnblogs.com/xiaoxi-3-/p/9492534.html
+        pip install -U pytest                              ---- （pytest --version）
+        pip install pytest-allure-adaptor                  ---- （allure --version）
+        npm install -g allure-commandline --save-dev       
+        
+    allure使用方法：https://pypi.org/project/pytest-allure-adaptor/
         
 
 Pycharm快捷键：
