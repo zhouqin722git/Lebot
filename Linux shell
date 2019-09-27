@@ -26,7 +26,26 @@
         > mput local-files   #upload
         > bye  
         
+##shell中sed的用法
+        1、在指定行的结尾添加指定字符串，如第2行的行尾添加“TAIL”：
+                sed -i '2s/$/&TAIL/g' test.file  
         
+        2、在每行的行尾添加字符，比如“TAIL”，命令如下：
+                sed -i 's/$/&TAIL/g' test.file
+                
+        3、在每行的行首添加字符，比如"HEAD"，命令如下：
+                sed -i 's/^/HEAD&/g' test.file
+                
+        4、在文本最后添加一行，比如：“Append_Line”,命令如下：
+                sed -i '$a Append_Line' test_file
+                
+        5、在指定行添加注释#，如：2~8行，命令如下：
+                sed -i '2,8s/^/#/' test_file
+                
+        6、在指定行取消注释#，如： 10,16行，命令如下：
+                sed -i '10,16/#//' test_file
+
+
 ##pip
 
  1029  yum install epel-release
