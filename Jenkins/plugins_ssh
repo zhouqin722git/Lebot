@@ -23,3 +23,7 @@
     
     ③ 之后在用ssh B<ip>尝试能否免密登录B服务器。
       
+
+#### Publish over SSH:
+    
+    链接：https://blog.csdn.net/miss1181248983/article/details/82840006
