@@ -55,6 +55,9 @@
                 
 ##shell中ftp用户名密码的用法
         wget url --ftp-user=username --ftp-password=password
+        
+##shell中皮的获取
+        ip=`ifconfig|grep broadcast|awk '{print $2}'|head -1`
 
 
 ##pip
