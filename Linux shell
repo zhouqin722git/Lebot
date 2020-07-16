@@ -52,6 +52,9 @@
                 
         6、在指定行取消注释#，如： 10,16行，命令如下：
                 sed -i '10,16/#//' test_file
+                
+##shell中ftp用户名密码的用法
+        wget url --ftp-user=username --ftp-password=password
 
 
 ##pip
