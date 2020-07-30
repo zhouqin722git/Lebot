@@ -56,9 +56,16 @@
 ##shell中ftp用户名密码的用法
         wget url --ftp-user=username --ftp-password=password
         
-##shell中皮的获取
+##shell中ip的获取
         ip=`ifconfig|grep broadcast|awk '{print $2}'|head -1`
 
+##shell中禁用虚拟网卡的用法
+        https://www.cnblogs.com/kevingrace/p/5772589.html
+        具体：
+                virsh net-list
+                virsh net-destroy default
+                virsh net-undefine default
+                service libvirtd restart
 
 ##pip
 
