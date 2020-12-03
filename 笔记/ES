@@ -1,0 +1,35 @@
+####
+
+ES查询的正则匹配
+
+{
+    "query": {
+        "regexp": {
+            "ioc_detail_path": {
+                "value": "https://[a-z]*\\.[a-z]*/"
+            }
+        }
+    }
+}
+
+包含中文的正则匹配表达式：".*[\u4e00-\u9fa5]{1,}.*"
+
+####
+
+ES通配符的匹配
+
+{
+        "query": {
+            "bool": {
+                "must": [{
+                    "wildcard": {
+                        field: wildexp
+                    }
+                }]
+            }
+        },
+        "size": 1,
+        "sort": {
+            "first_seen": "desc"
+        }
+    }
