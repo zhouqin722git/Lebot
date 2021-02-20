@@ -27,12 +27,14 @@
         > bye  
 
 ##访问derby数据库
-        [root@localhost tmp]# nc -U dv_derby_ij_27274.sock   ##（该sock为进程对应的sock）
+        [root@localhost ~]# cd /tmp/
+        [root@localhost tmp]# nc -U dv_derby_ij_27274.sock   ##（该sock为master进程对应的sock）
         CONNECTION0* - 	jdbc:derby:db/api_derby
         * = current connection
         ij> show tables; (执行sql命令)
-        ij> select * from T_Global;
-        ij> delete from T_Global;
+        ij> select * from T_RESOLVER_MASTER;
+        ij> delete from T_RESOLVER_MASTER where name= 'AISA_behavior_HTTP';
+        ij> delete from T_DATASOURCE_MASTER;
 
 ##shell中sed的用法
         1、在指定行的结尾添加指定字符串，如第2行的行尾添加“TAIL”：
