@@ -2,7 +2,7 @@
 
 ##安装
 
-1、选择相应的操作系统，下载LTS版本的Jenkins安装包： https://jenkins.io/download/
+1、选择相应的操作系统，下载LTS版本的Jenkins安装包： https://jenkins.io/download/   或者 https://get.jenkins.io/war-stable/
 
 2、上传到操作系统，如：Linux, 
 
