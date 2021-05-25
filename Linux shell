@@ -26,6 +26,21 @@
         > mput local-files   #upload
         > bye  
 
+## 
+1、添加防火墙开放端口
+    以修改配置文件的方式添加开放端口：
+        vim /etc/firewalld/zones/public.xml
+        以命令的方式添加开放端口：
+        firewall-cmd --zone=public --add-port=8080/tcp --permanent
+        添加完成后需要reload：
+        firewall-cmd --reload
+        查看已开放端口：
+        firewall-cmd --list-all
+        ---------》
+	rule family="ipv4" port port="9092" protocol="tcp" accept
+	rule family="ipv4" source address="10.217.62.65" port port="8444" protocol="tcp" accept（只对source address放开该端口）
+        
+        
 ##访问derby数据库
         [root@localhost ~]# cd /tmp/
         [root@localhost tmp]# nc -U dv_derby_ij_27274.sock   ##（该sock为master进程对应的sock）
