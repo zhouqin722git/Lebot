@@ -18,7 +18,10 @@
 查询域名对应的ip地址
         在DOS窗口输入命令： ping 空格 域名
 
-
+sudo免密设置
+	vim /etc/sudoers
+	username ALL = (ALL) NOPASSWD: ALL      #也就是加个NOPASSWD：
+	
 ## Linux中  ftp上传下载   url: https://www.jb51.net/article/129520.htm
         如：
         ftp [hostname | ip_address]
