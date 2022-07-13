@@ -1,0 +1,75 @@
+****************************************
+              yum一键安装
+****************************************
+
+前提
+Linux下需要安装了yum
+
+
+查看系统是否有自带 jdk
+rpm -qa |grep java
+
+rpm -qa |grep jdk
+
+rpm -qa |grep gcj
+ 
+
+有就执行批量卸载命令
+rpm -qa | grep java | xargs rpm -e --nodeps 
+ 
+
+yum查看可安装的JDK版本
+yum -y list java*
+
+
+选择自己需要的JDK版本进行安装，现在优先选择1.8
+yum install -y java-1.8.0-openjdk-devel.x86_64
+等待安装完成即可
+
+
+查看JDK版本
+java -version
+
+
+yum 安装 jdk 的路径
+默认 jre jdk 安装路径是 /usr/lib/jvm 下面
+
+ 
+
+配置 JAVA_HOME
+记住是这个路径
+
+export  JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64
+
+****************************************
+                  手动安装
+                  
+****************************************
+去官网下载安装包：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+
+找到对应的安装包
+
+将这个压缩包放到/usr/local/下，解压压缩包
+tar -zxvf jdk-8u251-linux-x64.tar.gz
+ 
+
+配置环境变量
+vim /etc/profile
+在文件尾部添加以下信息
+
+export JAVA_HOME=/usr/local/jdk/jdk1.8.0_181
+export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/ 
+export PATH=$PATH:$JAVA_HOME/bin
+
+
+ 
+
+更新环境配置
+source /etc/profile
+ 
+
+查看JDK版本
+java -version
+
+
+ 
