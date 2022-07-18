@@ -1,0 +1,8 @@
+
+linux 基本命令：
+
+查看文件名：basename $file
+查看路径名：dirname $dir
+
+查找文件： find /opt/zq/download -name **.tar.gz
+查找文件内容： grep 
